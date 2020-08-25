@@ -45,6 +45,7 @@ function App() {
 
         tl.from('h2 .line span', {duration: 1.6, y: 100, stagger: {amount: .4}, skewX: 7, ease: "power4.out"})
             .to(".intro-overlay .overlay", {duration: 1.6, height: 0, ease: "expo.inOut", stagger: 0.4})
+            .to('.intro-overlay', {duration: 0, css: {display: 'none'}})
             .to(tlCan, {duration: 27, ease: Power1.easeInOut})
 
     })

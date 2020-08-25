@@ -18,7 +18,7 @@ const Header = () => {
                     </div>
                     <div className="header-links">
                         <ul>
-                            <li>
+                            <li className={'header-link'}>
                                 <Link to={'/shop'}>
                                     Shop
                                 </Link>
