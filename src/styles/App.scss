@@ -1,0 +1,211 @@
+$peach: #cf9853;
+$black: #060505;
+$light-grey: #dddbd7;
+$dark-grey: #807f80;
+$white: #f3f3f3;
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+
+html,
+body {
+    //visibility: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+    overscroll-behavior: none;
+    margin: 0;
+    font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.container {
+    max-width: 1280px;
+    width: 1280px;
+    margin: 0 auto;
+}
+
+
+.intro-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    z-index: 1;
+
+    .overlay {
+        height: 100%;
+        width: calc(100% / 3);
+        background: $white;
+
+        &:nth-child(1) {
+            left: 0;
+        }
+
+        &:nth-child(2) {
+            left: 33.333%;
+        }
+
+        &:nth-child(3) {
+            left: 66.666%;
+        }
+    }
+}
+
+.main-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+
+    .overlay {
+        width: calc(100% / 3);
+        background: $white;
+
+        &:nth-child(1) {
+            left: 33.333%;
+            background: $black;
+        }
+
+        &:nth-child(2) {
+            left: 33.333%;
+            background: $peach;
+        }
+
+        &:nth-child(3) {
+            left: 66.666%;
+            background: $black
+        }
+    }
+}
+
+//Header
+header {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    .header-inner {
+        display: flex;
+        justify-content: space-between;
+
+        .logo {
+            a {
+                color: $white;
+                text-decoration: none;
+                font-size: 36px;
+                font-weight: 700;
+            }
+        }
+
+        .header-links {
+            ul {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+
+                li {
+                    list-style: none;
+
+                    &:not(:last-of-type) {
+                        margin-right: 20px;
+                    }
+
+                    a {
+                        font-size: 16px;
+                        text-decoration: none;
+                        color: $white;
+
+                        svg {
+                            width: 20px;
+                            height: 20px;
+                            fill: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//Main
+.main {
+    margin-top: 100px;
+
+    .container {
+        .row {
+            display: flex;
+
+            .info {
+                width: 60%;
+                display: flex;
+                align-items: center;
+
+                .info-inner {
+                    width: 100%;
+
+                    & + span {
+                        text-transform: uppercase;
+                        color: $white;
+                    }
+
+                    h2 {
+                        font-size: 3rem;
+                        position: relative;
+                        line-height: 4.2rem;
+                        font-weight: 700;
+                        z-index: 10;
+                        color: $white;
+                        mix-blend-mode: difference!important;
+                        .line {
+                            margin-bottom: 8px;
+                            height: 56px;
+                            position: relative;
+                            overflow: hidden;
+
+                            span {
+                                position: absolute;
+                            }
+                        }
+                    }
+
+                    .btn {
+                        a {
+                            text-decoration: none;
+                            color: $peach;
+                        }
+                    }
+                }
+            }
+
+            .img {
+                width: 40%;
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
