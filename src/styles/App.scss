@@ -75,19 +75,74 @@ body {
         width: calc(100% / 3);
         background: $white;
 
+        .child {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+        }
+
         &:nth-child(1) {
-            left: 33.333%;
+            position: relative;
+            left: 0%;
             background: $black;
+
+            .child {
+                &:nth-child(1) {
+                    background: $peach;
+                }
+
+                &:nth-child(2) {
+                    background: $light-grey;
+                }
+
+                &:nth-child(3) {
+                    background: $peach;
+                }
+            }
+
         }
 
         &:nth-child(2) {
-            left: 33.333%;
+            position: relative;
+            left: 0%;
             background: $peach;
+
+            .child {
+                background: $black;
+                &:nth-child(1) {
+                    background: $light-grey;
+                }
+
+                &:nth-child(2) {
+                    background: $black;
+                }
+
+                &:nth-child(3) {
+                    background: $dark-grey;
+                }
+            }
         }
 
         &:nth-child(3) {
-            left: 66.666%;
-            background: $black
+            position: relative;
+            left: 0%;
+            background: $black;
+
+            .child {
+                background: $light-grey;
+                &:nth-child(1) {
+                    background: $peach;
+                }
+
+                &:nth-child(2) {
+                    background: $light-grey;
+                }
+
+                &:nth-child(3) {
+                    background: $peach;
+                }
+            }
         }
     }
 }
@@ -131,23 +186,24 @@ header {
                     }
 
                     &.header-link {
-                        a{
+                        a {
                             cursor: pointer;
                             position: relative;
 
-                            &::after{
-                                display:block;
+                            &::after {
+                                display: block;
                                 content: '';
                                 border-bottom: solid 2px $white;
                                 transform: scaleX(0);
                                 transition: transform 250ms ease-in-out;
-                                transform-origin:100% 50%;
+                                transform-origin: 100% 50%;
                             }
                         }
+
                         a:hover {
-                            &::after{
+                            &::after {
                                 transform: scaleX(1);
-                                transform-origin:0 50%;
+                                transform-origin: 0 50%;
                             }
                         }
                     }
@@ -175,6 +231,10 @@ header {
     margin-top: 100px;
 
     .container {
+        position: relative;
+        height: 100%;
+        min-height: 80vh;
+
         .row {
             display: flex;
 
@@ -186,7 +246,7 @@ header {
                 .info-inner {
                     width: 100%;
 
-                    & + span {
+                    span {
                         text-transform: uppercase;
                         color: $white;
                     }
@@ -213,18 +273,96 @@ header {
                     }
 
                     .btn {
+
                         a {
                             text-decoration: none;
                             color: $peach;
+                            font-size: 20px;
+                            display: flex;
+                            align-items: center;
+                            transition: .4s ease-in-out;
+
+                            svg {
+                                height: 25px;
+                                width: 50px;
+                                fill: $peach;
+                                transition: .4s ease-in-out;
+                            }
+
+                            &:hover {
+                                svg {
+                                    margin-left: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .arrows {
+                    .disabled {
+                        opacity: .6;
+                        cursor: not-allowed;
+                        pointer-events: none;
+                    }
+
+                    position: absolute;
+                    bottom: 40px;
+                    left: 20px;
+
+                    a {
+                        background: $white;
+                        display: inline-flex;
+                        padding: 8px;
+                        align-items: center;
+                        margin-right: 15px;
+                        transition: .4s ease-out;
+
+                        svg {
+                            fill: $peach;
+                            width: 20px;
+                        }
+
+                        &:hover {
+                            opacity: .6;
                         }
                     }
                 }
             }
 
             .img {
+
+                position: relative;
                 width: 40%;
+                min-height: 60vh;
+
+                .social-icons {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    display: flex;
+                    flex-direction: column;
+
+                    a {
+                        display: block;
+                        margin-bottom: 15px;
+                        opacity: 1;
+
+                        svg {
+
+                            width: 20px;
+                            height: 20px;
+                            fill: $white;
+                            transition: .4s ease-out;
+
+                            &:hover {
+                                fill: $peach
+                            }
+                        }
+                    }
+                }
 
                 img {
+                    position: absolute;
                     width: 100%;
                     object-fit: cover;
                 }
